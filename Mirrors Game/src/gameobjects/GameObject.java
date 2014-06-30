@@ -1,4 +1,4 @@
-package src.gameobjects;
+package gameobjects;
 
 import java.io.Serializable;
 
