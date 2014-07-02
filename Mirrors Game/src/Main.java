@@ -6,7 +6,7 @@ public class Main extends JFrame {
 		
 		Main main = new Main();
 
-	}
+	} //adding history to test new push SSH. Delete at your own will
 	
 	public Main(){
 		
