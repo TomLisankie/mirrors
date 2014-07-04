@@ -13,7 +13,7 @@ public abstract class Character extends GameObject implements Serializable {
 	boolean facingDirection = true;
 	
 	public void move(int x, int y){
-		//erfergesrgwergwer
+		
 		position.setLocation(position.getX() + x, position.getY() + y);
 		
 		//something for animation and sprite movement also has to exist here
