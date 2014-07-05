@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 public class Main extends JFrame {
+	
+	Room currentRoom;
 
 	public static void main(String[] args) {
 		
