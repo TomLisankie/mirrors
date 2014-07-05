@@ -10,7 +10,8 @@ public abstract class Character extends GameObject implements Serializable {
 	ArrayList<GameObject> inventory = new ArrayList<GameObject>();
 	int hp;
 	Point position = new Point(); //might change to a set of coordinates instead
-	boolean facingDirection = true;
+	int facingDirection = 0; //0 is facing front, 1 is left, 2 is facing away, 3 is right
+	Sprite sprite;
 	
 	public void move(int x, int y){
 		
