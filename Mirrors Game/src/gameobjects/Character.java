@@ -12,7 +12,7 @@ public abstract class Character extends GameObject implements Serializable {
 	Point position = new Point(); //might change to a set of coordinates instead
 	int facingDirection = 0; //0 is facing front, 1 is left, 2 is facing away, 3 is right
 	Sprite[] sprites; //will use facing direction to reference a sprite in the array
-	Sprite currentSprite;
+	Sprite currentSprite; //the current sprite
 	
 	public void move(int x, int y){
 		
