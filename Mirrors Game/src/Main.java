@@ -20,20 +20,23 @@ public class Main extends JFrame {
 	
 	public Main(){
 		
-		mainPanel = new JPanel();
-		mainPanel.setSize(800,600);
 		
-		BufferedImage image = null;
-		
-		try {
-			image = ImageIO.read(new File("diaz.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Graphics g = mainPanel.getGraphics();
-		g.drawImage(image, 50, 50, null);
+		mainPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                
+                BufferedImage image = null;
+        		try {
+        			image = ImageIO.read(getClass().getResource("/gameobjects/diaz.jpg"));
+        		} catch (IOException e1) {
+        			// TODO Auto-generated catch block
+        			e1.printStackTrace();
+        		}
+                
+                g.drawImage(image, 50, 50, null);
+            }
+        };
 		
 		add(mainPanel);
 		
