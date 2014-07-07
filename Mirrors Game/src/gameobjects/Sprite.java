@@ -13,5 +13,11 @@ public class Sprite {
 		image = img;
 		
 	}
+	
+	public BufferedImage getImage(){
+		
+		return image;
+		
+	}
 
 }

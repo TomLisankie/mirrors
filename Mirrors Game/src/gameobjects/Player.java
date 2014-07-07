@@ -1,5 +1,6 @@
 package gameobjects;
 
+import java.awt.Image;
 import java.awt.event.*;
 
 public class Player extends Character implements KeyListener {
@@ -17,19 +18,15 @@ public class Player extends Character implements KeyListener {
 			
 			//move, flip sprite if necessary, sprite animation, move character on screen
 			
-			
-			
 			move(-1, 0);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-			
-			
 			
 			move(1, 0);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_SPACE){
 			
-			jump();
+			
 			
 		}
 		
@@ -42,12 +39,6 @@ public class Player extends Character implements KeyListener {
 
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
-	}
-	
-	public void jump(){
-		
-		//performs jump action. changes position based on time system.
 		
 	}
 	
