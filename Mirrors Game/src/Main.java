@@ -23,6 +23,7 @@ public class Main extends JFrame {
 		
 		
 		mainPanel = new GamePanel();
+		mainPanel.requestFocus();
 		
 		add(mainPanel);
 		

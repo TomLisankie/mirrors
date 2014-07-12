@@ -17,7 +17,7 @@ public abstract class Character extends GameObject implements Serializable {
 	
 	public void move(int x, int y){
 		
-		getPosition().setLocation(getPosition().getX() + x, getPosition().getY() + y);
+		position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
 		
 		System.out.println("you pressed a key");
 		
