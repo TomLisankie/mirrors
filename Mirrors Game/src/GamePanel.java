@@ -8,17 +8,19 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements Runnable {
 	
 	BufferedImage image;
 	private Room currentRoom = new Room();
 	Player player = new Player();
 	
+	Thread thread;
+	
 	public GamePanel(){
-		
+		System.out.println("yooo");
 		image = null;
  		try {
- 			image = ImageIO.read(getClass().getResource("/gameobjects/diaz.jpg"));
+ 			image = ImageIO.read(getClass().getResource("/gameobjects/game_sprite.png"));
  		} catch (IOException e1) {
  			// TODO Auto-generated catch block
  			e1.printStackTrace();
@@ -32,6 +34,8 @@ public class GamePanel extends JPanel {
 		
 		addKeyListener(player);
 		
+		thread = new Thread(this);
+		
 	}
 
 	 protected void paintComponent(Graphics g) {
@@ -41,5 +45,28 @@ public class GamePanel extends JPanel {
          
          repaint();
      }
+
+	public void run() {
+		long start = System.currentTimeMillis();
+		
+		Thread current = Thread.currentThread();
+		
+		while(current == thread){
+			
+			try{
+				
+				Thread.sleep(0);
+				
+			}catch(Exception e){
+				
+				e.printStackTrace();
+				
+			}
+			
+			repaint();
+			
+		}
+		
+	}
 	
 }
