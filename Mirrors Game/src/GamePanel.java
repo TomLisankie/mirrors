@@ -81,20 +81,23 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		
 		if(e.getKeyCode() == KeyEvent.VK_UP){
 			
+			player.setDirection(2);
 			player.move(0, -5);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_DOWN){
 			
+			player.setDirection(0);
 			player.move(0, 5);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_LEFT){
 			
 			//move, flip sprite if necessary, sprite animation, move character on screen
-			
+			player.setDirection(1);
 			player.move(-5, 0);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 			
+			player.setDirection(3);
 			player.move(5, 0);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_SPACE){

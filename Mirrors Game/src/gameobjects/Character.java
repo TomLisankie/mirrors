@@ -67,4 +67,16 @@ public abstract class Character extends GameObject implements Serializable {
 		this.position = position;
 	}
 	
+	public void setDirection(int direction){
+		
+		facingDirection = direction;
+		
+	}
+	
+	public int getDirection(){
+		
+		return facingDirection;
+		
+	}
+	
 }
