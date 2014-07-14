@@ -48,6 +48,60 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
          
          System.out.println("repaint");
          
+         if(player.getDirection() == 0){
+        	 
+        	 try {
+				image = ImageIO.read(getClass().getResource("/gameobjects/game_sprite.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	 
+        	Sprite playerSprite = new Sprite();
+      		playerSprite.setImage(image);
+      		player.setSprite(playerSprite);
+        	 
+         }else if(player.getDirection() == 1){
+        	 
+        	 try {
+				image = ImageIO.read(getClass().getResource("/gameobjects/252.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	 
+        	Sprite playerSprite = new Sprite();
+      		playerSprite.setImage(image);
+      		player.setSprite(playerSprite);
+        	 
+         }else if(player.getDirection() == 2){
+        	 
+        	 try {
+				image = ImageIO.read(getClass().getResource("/gameobjects/501.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
+        	Sprite playerSprite = new Sprite();
+      		playerSprite.setImage(image);
+      		player.setSprite(playerSprite);
+        	 
+         }else if(player.getDirection() == 3){
+        	 
+        	 try {
+				image = ImageIO.read(getClass().getResource("/gameobjects/502.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	 
+        	Sprite playerSprite = new Sprite();
+      		playerSprite.setImage(image);
+      		player.setSprite(playerSprite);
+        	 
+         }
+         
          g.drawImage(player.getSprite().getImage(), (int) player.getPosition().getX(), (int) player.getPosition().getY(), null);
          
          repaint();
