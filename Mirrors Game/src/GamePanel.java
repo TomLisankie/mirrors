@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
-	BufferedImage image;
+	BufferedImage[] image = new BufferedImage[4];
 	private Room currentRoom = new Room();
-	Player player = new Player();
+	private Player player = new Player();
 	
 	Thread thread;
 	
@@ -22,19 +22,23 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		
 		System.out.println("yooo");
 		this.setFocusable(true);
-		image = null;
+		
  		try {
- 			image = ImageIO.read(getClass().getResource("/gameobjects/game_sprite.png"));
+ 			image[0] = ImageIO.read(getClass().getResource("/gameobjects/game_sprite.png"));
+ 			image[1] = ImageIO.read(getClass().getResource("/gameobjects/252.png"));
+ 			image[2] = ImageIO.read(getClass().getResource("/gameobjects/501.png"));
+ 			image[3] = ImageIO.read(getClass().getResource("/gameobjects/502.png"));
  		} catch (IOException e1) {
  			// TODO Auto-generated catch block
  			e1.printStackTrace();
  		}
  		
  		Sprite playerSprite = new Sprite();
- 		playerSprite.setImage(image);
+ 		playerSprite.setImage(image[0]);
  		player.setSprite(playerSprite);
+ 		player.setSpeed(5);
 		
-		currentRoom.add(player);
+		currentRoom.addPlayer(player);
 		
 		addKeyListener(this);
 		
@@ -44,65 +48,37 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	}
 
 	 protected void paintComponent(Graphics g) {
+		 
          super.paintComponent(g);
-         
-         System.out.println("repaint");
          
          if(player.getDirection() == 0){
         	 
-        	 try {
-				image = ImageIO.read(getClass().getResource("/gameobjects/game_sprite.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	 
         	Sprite playerSprite = new Sprite();
-      		playerSprite.setImage(image);
-      		player.setSprite(playerSprite);
+      		playerSprite.setImage(image[0]);
+      		currentRoom.getPlayer().setSprite(playerSprite);
         	 
          }else if(player.getDirection() == 1){
         	 
-        	 try {
-				image = ImageIO.read(getClass().getResource("/gameobjects/252.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	 
         	Sprite playerSprite = new Sprite();
-      		playerSprite.setImage(image);
-      		player.setSprite(playerSprite);
+      		playerSprite.setImage(image[1]);
+      		currentRoom.getPlayer().setSprite(playerSprite);
         	 
          }else if(player.getDirection() == 2){
-        	 
-        	 try {
-				image = ImageIO.read(getClass().getResource("/gameobjects/501.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
         	
         	Sprite playerSprite = new Sprite();
-      		playerSprite.setImage(image);
-      		player.setSprite(playerSprite);
+      		playerSprite.setImage(image[2]);
+      		currentRoom.getPlayer().setSprite(playerSprite);
         	 
          }else if(player.getDirection() == 3){
-        	 
-        	 try {
-				image = ImageIO.read(getClass().getResource("/gameobjects/502.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	 
+        	
         	Sprite playerSprite = new Sprite();
-      		playerSprite.setImage(image);
-      		player.setSprite(playerSprite);
+      		playerSprite.setImage(image[3]);
+      		currentRoom.getPlayer().setSprite(playerSprite);
         	 
          }
          
-         g.drawImage(player.getSprite().getImage(), (int) player.getPosition().getX(), (int) player.getPosition().getY(), null);
+         g.drawImage(currentRoom.getPlayer().getSprite().getImage(), 
+        		 (int) currentRoom.getPlayer().getPosition().getX(), (int) currentRoom.getPlayer().getPosition().getY(), null);
          
          repaint();
      }
@@ -113,7 +89,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		Thread current = Thread.currentThread();
 		
 		while(current == thread){
-			//System.out.println("in the thread");
+			
 			
 			try{
 				
@@ -133,26 +109,26 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
 	public void keyPressed(KeyEvent e) {
 		
-		if(e.getKeyCode() == KeyEvent.VK_UP){
+		if(e.getKeyCode() == KeyEvent.VK_W){
 			
-			player.setDirection(2);
-			player.move(0, -5);
+			currentRoom.getPlayer().setDirection(2);
+			currentRoom.getPlayer().move(0, ((-1)*player.getSpeed()));
 			
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN){
+		}else if(e.getKeyCode() == KeyEvent.VK_S){
 			
-			player.setDirection(0);
-			player.move(0, 5);
+			currentRoom.getPlayer().setDirection(0);
+			currentRoom.getPlayer().move(0, player.getSpeed());
 			
-		}else if(e.getKeyCode() == KeyEvent.VK_LEFT){
+		}else if(e.getKeyCode() == KeyEvent.VK_A){
 			
 			//move, flip sprite if necessary, sprite animation, move character on screen
-			player.setDirection(1);
-			player.move(-5, 0);
+			currentRoom.getPlayer().setDirection(1);
+			currentRoom.getPlayer().move(((-1)*player.getSpeed()), 0);
 			
-		}else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+		}else if(e.getKeyCode() == KeyEvent.VK_D){
 			
-			player.setDirection(3);
-			player.move(5, 0);
+			currentRoom.getPlayer().setDirection(3);
+			currentRoom.getPlayer().move(player.getSpeed(), 0);
 			
 		}else if(e.getKeyCode() == KeyEvent.VK_SPACE){
 			
@@ -161,12 +137,17 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
+		Sprite playerSprite = new Sprite();
+  		playerSprite.setImage(image[0]);
+  		System.out.println(image[0]);
+  		currentRoom.getPlayer().setSprite(playerSprite);
+  		System.out.println("gaefuygaudyfgayue");
 		
 	}
 
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		System.out.println("hello");
 		
 	}
 	

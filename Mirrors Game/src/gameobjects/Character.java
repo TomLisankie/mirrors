@@ -8,6 +8,7 @@ import java.io.Serializable;
 public abstract class Character extends GameObject implements Serializable {
 	
 	int inventoryMax;
+	int characterSpeed = 5;
 	ArrayList<GameObject> inventory = new ArrayList<GameObject>();
 	int hp;
 	private Point position = new Point(); //might change to a set of coordinates instead
@@ -76,6 +77,18 @@ public abstract class Character extends GameObject implements Serializable {
 	public int getDirection(){
 		
 		return facingDirection;
+		
+	}
+	
+	public void setSpeed(int speed){
+		
+		characterSpeed = speed;
+		
+	}
+	
+	public int getSpeed(){
+		
+		return characterSpeed;
 		
 	}
 	
