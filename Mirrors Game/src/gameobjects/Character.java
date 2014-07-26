@@ -9,6 +9,7 @@ public abstract class Character extends GameObject implements Serializable {
 	
 	int inventoryMax;
 	int characterSpeed = 5;
+	boolean isMoving = false;
 	ArrayList<GameObject> inventory = new ArrayList<GameObject>();
 	int hp;
 	private Point position = new Point(); //might change to a set of coordinates instead
@@ -18,12 +19,20 @@ public abstract class Character extends GameObject implements Serializable {
 	
 	public void move(int x, int y){
 		
-		position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
+		if(isMoving == true){
 		
-		System.out.println("you pressed a key");
-		
+			position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
+			
+			System.out.println("you pressed a key");
+		}
 		//something for animation and sprite movement also has to exist here
 		//changes position and position of icon on screen
+		
+	}
+	
+	public void attack(){
+		
+		
 		
 	}
 	
@@ -89,6 +98,18 @@ public abstract class Character extends GameObject implements Serializable {
 	public int getSpeed(){
 		
 		return characterSpeed;
+		
+	}
+	
+	public void setMovingState(boolean moving){
+		
+		isMoving = moving;
+		
+	}
+	
+	public boolean getMovingState(){
+		
+		return isMoving;
 		
 	}
 	

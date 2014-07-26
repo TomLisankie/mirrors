@@ -6,6 +6,7 @@ import java.util.*;
 public class Room {
 	
 	ArrayList<GameObject> objectsInRoom = new ArrayList<GameObject>();
+	ArrayList<Floor> roomFloors = new ArrayList<Floor>();
 	Player thePlayer;
 	
 	//need to have a thing for different physical heights/levels in the room
