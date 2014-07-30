@@ -52,7 +52,7 @@ public abstract class Character extends GameObject implements Serializable {
 		
 	}
 	
-	public void removeFromInventory(/*not sure whether it should be a GameObject or index number yet*/){
+	public void removeFromInventory(/*not sure whether it should be a GameObject or index number yet* Andrew votes index # */){
 		
 		//removes an object from the Character's inventory
 		

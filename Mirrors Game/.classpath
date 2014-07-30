@@ -2,5 +2,19 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/tinylinepp.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/slick-examples.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/slick.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/natives-windows.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/natives-mac.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/natives-linux.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jnlp.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/ibxm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
