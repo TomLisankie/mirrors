@@ -1,7 +1,7 @@
-import gameobjects.*;																																																												
+import gameobjects.Player;
+import gameobjects.Sprite;
 
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -9,12 +9,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.command.InputProviderListener;
+
 
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
+	//List for sprites
 	BufferedImage[] playerSprites = new BufferedImage[4];
+	//List for layers
 	BufferedImage[] layers = new BufferedImage[3];																																											
 	private Room currentRoom = new Room();
+	//So far player just attacks
 	private Player player = new Player();
 	
 	Thread thread;
@@ -35,11 +41,14 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
  			e1.printStackTrace();
  		}
  		
+ 		
+ 		//Sets images and for sprites
  		Sprite playerSprite = new Sprite();
  		playerSprite.setImage(playerSprites[0]);
+ 		
  		player.setSprite(playerSprite);
  		player.setSpeed(5);
-		
+		//adds player object to the room
 		currentRoom.addPlayer(player);
 		
 		addKeyListener(this);
@@ -124,48 +133,54 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		
 	}
 
-	public void keyPressed(KeyEvent e) {
-		
-		if(e.getKeyCode() == KeyEvent.VK_W){
-			
-			currentRoom.getPlayer().setDirection(2);
-			currentRoom.getPlayer().setMovingState(true);
-			currentRoom.getPlayer().move(0, ((-1)*player.getSpeed()));
-			
-		}else if(e.getKeyCode() == KeyEvent.VK_S){
-			
-			currentRoom.getPlayer().setDirection(0);
-			currentRoom.getPlayer().setMovingState(true);
-			currentRoom.getPlayer().move(0, player.getSpeed());
-			
-		}else if(e.getKeyCode() == KeyEvent.VK_A){
-			
-			//move, flip sprite if necessary, sprite animation, move character on screen
-			currentRoom.getPlayer().setDirection(1);
-			currentRoom.getPlayer().setMovingState(true);
-			currentRoom.getPlayer().move(((-1)*player.getSpeed()), 0);
-			
-		}else if(e.getKeyCode() == KeyEvent.VK_D){
-			
-			currentRoom.getPlayer().setDirection(3);
-			currentRoom.getPlayer().setMovingState(true);
-			currentRoom.getPlayer().move(player.getSpeed(), 0);
-			
-		}else if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			
-		}
-		
-	}
+	private class Movement {
 
-	public void keyReleased(KeyEvent e) {
-		
-  		currentRoom.getPlayer().setMovingState(false);
-		
-	}
-
-	public void keyTyped(KeyEvent e) {
-		
-		
-	}
 	
+	
+		
+		
+//	public void keyPressed(KeyEvent e) {
+//		
+//		if(e.getKeyCode() == KeyEvent.VK_W){
+//			
+//			currentRoom.getPlayer().setDirection(2);
+//			currentRoom.getPlayer().setMovingState(true);
+//			currentRoom.getPlayer().move(0, ((-1)*player.getSpeed()));
+//			
+//		}else if(e.getKeyCode() == KeyEvent.VK_S){
+//			
+//			currentRoom.getPlayer().setDirection(0);
+//			currentRoom.getPlayer().setMovingState(true);
+//			currentRoom.getPlayer().move(0, player.getSpeed());
+//			
+//		}else if(e.getKeyCode() == KeyEvent.VK_A){
+//			
+//			//move, flip sprite if necessary, sprite animation, move character on screen
+//			currentRoom.getPlayer().setDirection(1);
+//			currentRoom.getPlayer().setMovingState(true);
+//			currentRoom.getPlayer().move(((-1)*player.getSpeed()), 0);
+//			
+//		}else if(e.getKeyCode() == KeyEvent.VK_D){
+//			
+//			currentRoom.getPlayer().setDirection(3);
+//			currentRoom.getPlayer().setMovingState(true);
+//			currentRoom.getPlayer().move(player.getSpeed(), 0);
+//			
+//		}else if(e.getKeyCode() == KeyEvent.VK_SPACE){
+//			
+//		}
+//		
+//	}
+//
+//	public void keyReleased(KeyEvent e) {
+//		
+//  		currentRoom.getPlayer().setMovingState(false);
+//		
+//	}
+//
+//	public void keyTyped(KeyEvent e) {
+//		
+//		
+//	}
+	}
 }
