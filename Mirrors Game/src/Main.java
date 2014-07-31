@@ -37,7 +37,7 @@ public class Main extends JFrame {
 - Suddenly mirror people appear in some way. You almost get killed, but are saved by a mirror person.
 - While under the guidance of the first mirror person, you almost get killed again but are saved by another mirror person and are guided by them for a bit.
 - During the times you are under the guide of both, you see them both do sort of morally ambiguous things. This makes it so you can't really tell which mirror person is good or bad.
-- You encounter the first mirror person again while under the guidance of the second and have to choose which one to go with. Probably shouldn't be direct choice like "which one do you choose?" because that's lame.
+- You encounter the first mirror per		son again while under the guidance of the second and have to choose which one to go with. Probably shouldn't be direct choice like "which one do you choose?" because that's lame.
 - You're given the key item that allows you to transfer between worlds by your mirror person (from here-on-out referred to as a companion).
 - Your companion tells you that in order to seal off the mirror world from the real world, five parts must be collected. The game involves collecting these 5 parts.
 - At the end of the game, depending on whether your companion was good or evil, you find out whether the machine seals off the two worlds or makes it so the mirror world can completely overflow into reality.

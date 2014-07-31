@@ -1,4 +1,4 @@
-import gameobjects.*;
+import gameobjects.*;																																																												
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements Runnable, KeyListener {
 	
 	BufferedImage[] playerSprites = new BufferedImage[4];
-	BufferedImage[] layers = new BufferedImage[3];
+	BufferedImage[] layers = new BufferedImage[3];																																											
 	private Room currentRoom = new Room();
 	private Player player = new Player();
 	
