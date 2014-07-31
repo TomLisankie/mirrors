@@ -61,6 +61,8 @@ public class Game extends Canvas {
 	private boolean leftPressed = false;
 	/** True if the right cursor key is currently pressed */
 	private boolean rightPressed = false;
+	private boolean upPressed = false;
+	private boolean downPressed = false;
 	private double moveSpeed = 300;
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
@@ -175,6 +177,8 @@ public class Game extends Canvas {
 
 		leftPressed = false;
 		rightPressed = false;
+		upPressed = false;
+		downPressed = false;
 	}
 
 	/**
@@ -184,8 +188,10 @@ public class Game extends Canvas {
 	private void initEntities() {
 
 		// Sets player sprite
-		player = new Player( path + "game_sprite.png", 200, 200);
+		player = new Player( path + "game_sprite.png", 400, 400);
 		entities.add(player);
+		
+		//we can add other entities here into the windows (Such as the Kathrepti)
 	}
 
 	 //Game Logic- for when we need to update other characters/movements/things
@@ -257,19 +263,20 @@ public class Game extends Canvas {
 			g.fillRect(0, 0, 800, 600);
 
 			
-			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
-			// for (int i=0;i<entities.size();i++) {
-			// Character entity = (Character) entities.get(i);
-			//
-			// entity.draw(g);
-			//
-			// } 
+		
 			
 			ImageObserver observer = null;
 			
-			
-			player.draw(g);
 			g.drawImage(layers[0], 0, 0, observer);
+			
+			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
+			 for (int i=0;i<entities.size();i++) {
+			Entity entity = (Entity) entities.get(i);
+			
+			 entity.draw(g);
+			
+			 } 
+			
 			/*
 			 * // finally, we've completed drawing so clear up the graphics
 			 */
@@ -281,13 +288,27 @@ public class Game extends Canvas {
 			
 			//
 			player.setHorizontalMovement(0);
+			player.setVerticalMovement(0);
 
 			if ((leftPressed) && (!rightPressed)) {
 				player.setHorizontalMovement(-moveSpeed);
-			} else if ((rightPressed) && (!leftPressed)) {
+			} 
+			else if ((rightPressed) && (!leftPressed)) {
 				player.setHorizontalMovement(moveSpeed);
 			}
+		    if ((upPressed)&& (!downPressed)){
+				player.setVerticalMovement(-moveSpeed);
+			}
+			else if ((downPressed)&&(!upPressed)){
+				player.setVerticalMovement(moveSpeed);
+			}
 
+			player.move(10);
+			
+			
+			
+			
+			
 			try {
 				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
 			} catch (InterruptedException e) {
@@ -330,11 +351,17 @@ public class Game extends Canvas {
 				return;
 			}
 
-			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			if (e.getKeyCode() == KeyEvent.VK_A) {
 				leftPressed = true;
 			}
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if (e.getKeyCode() == KeyEvent.VK_D) {
 				rightPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_W){
+				upPressed = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_S){
+				downPressed = true;
 			}
 		}
 
@@ -351,11 +378,17 @@ public class Game extends Canvas {
 				return;
 			}
 
-			if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			if (e.getKeyCode() == KeyEvent.VK_A) {
 				leftPressed = false;
 			}
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if (e.getKeyCode() == KeyEvent.VK_D) {
 				rightPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_W){
+				upPressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_S){
+				downPressed = false;
 			}
 
 		}
@@ -373,7 +406,7 @@ public class Game extends Canvas {
 
 			// have had a keyType() event from the user releasing
 
-			// the shoot or move keys, hence the use of the "pressCount"
+			// the attack or move keys, so use of the "pressCount"
 			// counter.
 
 			if (waitingForKeyPress) {
