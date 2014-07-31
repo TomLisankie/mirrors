@@ -1,5 +1,4 @@
 
-
 import gameobjects.Entity;
 import gameobjects.Player;
 
@@ -10,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import org.newdawn.slick.Input;
 
 /**
  * The main hook of our game. This class with both act as a manager for the
@@ -77,7 +80,10 @@ public class Game extends Canvas {
 	private String windowTitle = "Mirrors";
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
+	
+	Input input = new Input(600);
 	//path to pics
+
 	String path = "gameobjects/";
 	// player spritees
 	Image[] playerSprites = new Image[4];
@@ -129,6 +135,7 @@ public class Game extends Canvas {
 		// so we can respond to key pressed
 
 		addKeyListener(new KeyInputHandler());
+		addMouseListener(new MouseInputHandler());
 
 		// request the focus so key events come to us
 
@@ -302,7 +309,12 @@ public class Game extends Canvas {
 			else if ((downPressed)&&(!upPressed)){
 				player.setVerticalMovement(moveSpeed);
 			}
-
+		    if((input.isMouseButtonDown(0)==true)){
+				player.attack();
+				System.out.println("ATTACK!");
+			}
+		    
+		    
 			player.move(10);
 			
 			
@@ -363,6 +375,7 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_S){
 				downPressed = true;
 			}
+			
 		}
 
 		/**
@@ -390,6 +403,7 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_S){
 				downPressed = false;
 			}
+			
 
 		}
 
@@ -431,6 +445,40 @@ public class Game extends Canvas {
 				System.exit(0);
 			}
 		}
+	}
+	private class MouseInputHandler implements MouseListener{
+
+		//put mouse methods here
+	
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 
 	/**

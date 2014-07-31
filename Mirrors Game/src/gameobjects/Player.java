@@ -28,6 +28,12 @@ public class Player extends Entity  {
 		if ((dx > 0) && (x > 750)) {
 			return;
 		}
+		if ((dy< 0) && (y < 10)){
+			return;
+		}
+		if ((dy>0)&& (y > 550)){
+			return;
+		}
 		
 		super.move(delta);
 	}
