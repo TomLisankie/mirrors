@@ -266,8 +266,8 @@ public class Game extends Canvas {
 			//
 			// } 
 			
-			ImageObserver observer;
-			observer = null;
+			ImageObserver observer = null;
+			
 			
 			player.draw(g);
 			g.drawImage(layers[0], 0, 0, observer);
@@ -279,12 +279,7 @@ public class Game extends Canvas {
 			g.dispose();
 			strategy.show();
 
-			// resolve the movement of the ship. First assume the ship
-
-			// isn't moving. If either cursor key is pressed then
-
-			// update the movement appropraitely
-
+			
 			//
 			player.setHorizontalMovement(0);
 
