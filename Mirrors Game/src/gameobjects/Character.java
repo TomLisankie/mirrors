@@ -1,36 +1,71 @@
 package gameobjects;
 
+import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import org.newdawn.slick.Input;
 
-public abstract class Character extends GameObject implements Serializable {
-
+public abstract class Character extends GameObject {
+	/** The current x location of this entity */ 
+	protected double x;
+	/** The current y location of this entity */
+	protected double y;
+	/** The sprite that represents this entity */
+	protected Sprite sprite;
+	/** The current speed of this entity horizontally (pixels/sec) */
+	protected double dx;
+	/** The current speed of this entity vertically (pixels/sec) */
+	protected double dy;
+	/** The rectangle used for this entity during collisions  resolution */
 	int inventoryMax;
 	int characterSpeed = 5;
 	boolean isMoving = false;
 	ArrayList<GameObject> inventory = new ArrayList<GameObject>();
 	int hp;
-	private Point position = new Point(); // might change to a set of coordinates instead
-	int facingDirection = 0; // 0 is facing front, 1 is left, 2 is facing away, 3 is right
+	private Point position = new Point(); // might change to a set of coordinates instead Changed it
+
+
+	
+	
 	Sprite[] sprites; // will use facing direction to reference a sprite in the array
 	Sprite currentSprite; // the current sprite
-
-	public void move(int x, int y) {
-
-		if (isMoving == true) {
-
-			position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
-
-			System.out.println("you pressed a key");
-		}
-		// something for animation and sprite movement also has to exist
-		// here
-		// changes position and position of icon on screen
-
+	
+	
+	public Character(){
+		
 	}
+	public Character(String ref, int x, int y){
+		this.sprite = SpriteStorage.get().getSprite(ref);
+		this.x =x;
+		this.y = y;
+		
+	}
+	
+	public void draw(Graphics g) {
+		sprite.draw(g,(int) x,(int) y);
+	}
+	
+	public void move(long delta) {
+		// update the location of the entity based on move speeds
+		x += (delta * dx) / 1000;
+		y += (delta * dy) / 1000;
+	}
+
+//	public void move(int x, int y) {
+//
+//		if (isMoving == true) {
+//
+//			position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
+//
+//			System.out.println("you pressed a key");
+//		}
+//		// something for animation and sprite movement also has to exist
+//		// here
+//		// changes position and position of icon on screen
+//
+//	}
 
 	public void attack() {
 		//Attack Animation +  what it does
@@ -72,38 +107,64 @@ public abstract class Character extends GameObject implements Serializable {
 		// TODO Auto-generated method stub
 		return currentSprite;
 	}
-
-	public Point getPosition() {
-		return position;
+	/**
+	 * Set the horizontal speed of this entity
+	 * 
+	 * @param dx The horizontal speed of this entity (pixels/sec)
+	 */
+	public void setHorizontalMovement(double dx) {
+		this.dx = dx;
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
+	/**
+	 * Set the vertical speed of this entity
+	 * 
+	 * @param dx The vertical speed of this entity (pixels/sec)
+	 */
+	public void setVerticalMovement(double dy) {
+		this.dy = dy;
+	}
+	
+	/**
+	 * Get the horizontal speed of this entity
+	 * 
+	 * @return The horizontal speed of this entity (pixels/sec)
+	 */
+	public double getHorizontalMovement() {
+		return dx;
 	}
 
-	public void setDirection(int direction) {
+	/**
+	 * Get the vertical speed of this entity
+	 * 
+	 * @return The vertical speed of this entity (pixels/sec)
+	 */
+	public double getVerticalMovement() {
+		return dy;
+	}
+	
+	/**
+	 * Draw this entity to the graphics context provided
+	 * 
+	 * @param g The graphics context on which to draw
+	 */
 
-		facingDirection = direction;
-
+	
+	public int getX() {
+		return (int) x;
 	}
 
-	public int getDirection() {
-
-		return facingDirection;
-
+	/**
+	 * Get the y location of this entity
+	 * 
+	 * @return The y location of this entity
+	 */
+	public int getY() {
+		return (int) y;
 	}
 
-	public void setSpeed(int speed) {
 
-		characterSpeed = speed;
 
-	}
-
-	public int getSpeed() {
-
-		return characterSpeed;
-
-	}
 
 	public void setMovingState(boolean moving) {
 

@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jnlp.jar"/>
 	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/jinput.jar"/>
 	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/lib/ibxm.jar"/>
+	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/GTGE/golden_0_2_3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
