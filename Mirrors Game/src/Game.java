@@ -1,6 +1,6 @@
 
 
-import gameobjects.Character;
+import gameobjects.Entity;
 import gameobjects.Player;
 
 import java.awt.Canvas;
@@ -45,12 +45,12 @@ public class Game extends Canvas {
 	/** True if the game is currently "running", i.e. the game loop is looping */
 	private boolean gameRunning = true;
 	/** The list of all the entities that exist in our game */
-	private ArrayList<Character> entities = new ArrayList<Character>();
+	private ArrayList<Entity> entities = new ArrayList<Entity>();
 	/** The list of entities that need to be removed from the game this loop */
 	private ArrayList removeList = new ArrayList();
 	/** The entity representing the player */
 
-	private Character player;
+	private Entity player;
 	/** The speed at which the player's ship should move (pixels/sec) */
 
 	/** The message to display which waiting for a key press */
@@ -76,7 +76,7 @@ public class Game extends Canvas {
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
 	//path to pics
-	String path = "/gameobjects/";
+	String path = "gameobjects/";
 	// player spritees
 	Image[] playerSprites = new Image[4];
 	// List for layers	
@@ -143,7 +143,7 @@ public class Game extends Canvas {
 		// Player Sprites
 		
 		try {
-			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png)"));
+			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		
 		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
 		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
@@ -188,7 +188,7 @@ public class Game extends Canvas {
 		entities.add(player);
 	}
 
-	// Game Logic- for when we need to update other characters/movements/things
+	 //Game Logic- for when we need to update other characters/movements/things
 	public void updateLogic() {
 		logicRequiredThisLoop = true;
 	}
@@ -197,7 +197,7 @@ public class Game extends Canvas {
 	 * Notification that the player has died.
 	 */
 	public void notifyDeath() {
-		message = "You Died Motherfucker";
+	message = "You Died";
 		waitingForKeyPress = true;
 	}
 
@@ -205,7 +205,7 @@ public class Game extends Canvas {
 	 * Notification that the player has won.
 	 */
 	public void notifyWin() {
-		message = "You Won...Bitch";
+		message = "You Won.";
 		waitingForKeyPress = true;
 	}
 

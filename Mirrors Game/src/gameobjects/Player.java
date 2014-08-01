@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-public class Player extends Character  {
+public class Player extends Entity  {
 	
 	private BufferedImage image;
 	

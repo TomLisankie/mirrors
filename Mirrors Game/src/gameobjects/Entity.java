@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public abstract class Character extends GameObject {
+public abstract class Entity extends GameObject {
 	/** The current x location of this entity */ 
 	protected double x;
 	/** The current y location of this entity */
@@ -33,10 +33,10 @@ public abstract class Character extends GameObject {
 	Sprite currentSprite; // the current sprite
 	
 	
-	public Character(){
+	public Entity(){
 		
 	}
-	public Character(String ref, int x, int y){
+	public Entity(String ref, int x, int y){
 		this.sprite = SpriteStorage.get().getSprite(ref);
 		this.x =x;
 		this.y = y;
