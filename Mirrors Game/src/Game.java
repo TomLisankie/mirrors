@@ -85,8 +85,7 @@ public class Game extends Canvas {
 	 * Construct our game and set it running.
 	 */
 	public Game() {
-		// create a frame to contain our game
-
+		// create a frame to contain our * 
 		container = new JFrame("Mirrors");
 
 		// get hold the content of the frame and set up the resolution of the
