@@ -61,7 +61,7 @@ public class Game extends Canvas {
 	private boolean leftPressed = false;
 	/** True if the right cursor key is currently pressed */
 	private boolean rightPressed = false;
-	private double movespeed = 300;
+	private double moveSpeed = 300;
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
 	 * a game event
