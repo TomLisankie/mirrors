@@ -1,8 +1,7 @@
 
 
-import gameobjects.Player;
-import gameobjects.Sprite;
 import gameobjects.Character;
+import gameobjects.Player;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -14,15 +13,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import com.golden.gamedev.engine.timer.SystemTimer;
 
 /**
  * The main hook of our game. This class with both act as a manager for the
@@ -64,7 +61,7 @@ public class Game extends Canvas {
 	private boolean leftPressed = false;
 	/** True if the right cursor key is currently pressed */
 	private boolean rightPressed = false;
-
+	private double movespeed = 300;
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
 	 * a game event
@@ -263,9 +260,13 @@ public class Game extends Canvas {
 			//
 			// entity.draw(g);
 			//
-			// }
+			// } 
+			
+			ImageObserver observer;
+			observer = null;
+			
 			player.draw(g);
-			g.draw
+			g.drawImage(layers[0], 0, 0, observer);
 			/*
 			 * // finally, we've completed drawing so clear up the graphics
 			 */
