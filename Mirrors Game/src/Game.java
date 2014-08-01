@@ -31,7 +31,7 @@ import javax.swing.JPanel;
  * main ship.
  * 
  * As a mediator it will be informed when entities within our game detect events
- * (e.g. alient killed, played died) and will take appropriate game actions.
+ 
  * 
  * @author Andrew Plaza
  */
@@ -179,13 +179,13 @@ public class Game extends Canvas {
 	}
 
 	/**
-	 * Initialise the starting state of the entities (ship and aliens). Each
+	 * Initialise the starting state of the entities  Each
 	 * entitiy will be added to the overall list of entities in the game.
 	 */
 	private void initEntities() {
 
 		// Sets player sprite
-		player = new Player( path + "game_sprite.png", 0, 0);
+		player = new Player( path + "game_sprite.png", 200, 200);
 		entities.add(player);
 	}
 
@@ -203,7 +203,7 @@ public class Game extends Canvas {
 	}
 
 	/**
-	 * Notification that the player has won since all the aliens are dead.
+	 * Notification that the player has won.
 	 */
 	public void notifyWin() {
 		message = "You Won...Bitch";

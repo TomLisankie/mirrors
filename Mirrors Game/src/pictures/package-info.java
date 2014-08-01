@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author insidious
- *
- */
-package pictures;
