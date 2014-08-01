@@ -75,6 +75,8 @@ public class Game extends Canvas {
 	private String windowTitle = "Mirrors";
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
+	//path to pics
+	String path = "/gameobjects/";
 	// player spritees
 	Image[] playerSprites = new Image[4];
 	// List for layers	
@@ -138,7 +140,7 @@ public class Game extends Canvas {
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
 
-		String path = "/gameobjects/";
+		
 		// Player Sprites
 		
 		try {
@@ -183,7 +185,7 @@ public class Game extends Canvas {
 	private void initEntities() {
 
 		// Sets player sprite
-		player = new Player("/gameobjects/game_sprite.png", 0, 0);
+		player = new Player( path + "game_sprite.png", 0, 0);
 		entities.add(player);
 	}
 
@@ -255,6 +257,8 @@ public class Game extends Canvas {
 			g.setColor(Color.black);
 			g.fillRect(0, 0, 800, 600);
 
+			
+			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
 			// for (int i=0;i<entities.size();i++) {
 			// Character entity = (Character) entities.get(i);
 			//

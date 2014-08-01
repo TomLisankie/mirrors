@@ -26,7 +26,7 @@ public class SpriteStorage {
 	}
 	
 	/** The cached sprite map, from reference to sprite instance */
-	private HashMap<String, Sprite> sprites = new HashMap<String, Sprite>();
+	private HashMap sprites = new HashMap();
 	
 	/**
 	 * Retrieve a sprite from the store
