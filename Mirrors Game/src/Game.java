@@ -8,6 +8,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -78,10 +79,9 @@ public class Game extends Canvas {
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
 	// player spritees
-	String[] playerSprites = new String[4];
-	// List for layers
-	String[] layers = new String[3];
-
+	Image[] playerSprites = new Image[4];
+	// List for layers	
+	Image[] layers = new Image[3];
 	/**
 	 * Construct our game and set it running.
 	 */
@@ -141,15 +141,23 @@ public class Game extends Canvas {
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
 
+		String path = "/gameobjects/";
 		// Player Sprites
-		layers[0] = ("/gameobjects/backdrop.png)");
-		layers[1] = playerSprites[0] = ("/gameobjects/game_sprite.png");
-		layers[2] = ("/gameobjects/castle.png");
-		playerSprites[1] = ("/gameobjects/252.png");
-		playerSprites[2] = ("/gameobjects/501.png");
-		playerSprites[3] = ("/gameobjects/502.png");
+		
+		try {
+			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png)"));
+		
+		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
+		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
+		playerSprites[1] = ImageIO.read(getClass().getResource( path + "252.png"));
+		playerSprites[2] = ImageIO.read(getClass().getResource( path + "501.png"));
+		playerSprites[3] = ImageIO.read(getClass().getResource( path +"502.png"));
+		
+		}catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		// initialise the entities in our game so there's something
-
 		// to see at startup
 
 		initEntities();
@@ -257,7 +265,7 @@ public class Game extends Canvas {
 			//
 			// }
 			player.draw(g);
-
+			g.draw
 			/*
 			 * // finally, we've completed drawing so clear up the graphics
 			 */
@@ -400,7 +408,7 @@ public class Game extends Canvas {
 	 * @param argv
 	 *            The arguments that are passed into our game
 	 */
-	public static void main(String args[]) {
+	public static void main(String argv[]) {
 		Game g = new Game();
 
 		// Start the main game loop, note: this method will not
