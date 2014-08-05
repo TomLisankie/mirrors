@@ -69,6 +69,7 @@ public abstract class Entity extends GameObject {
 
 	public void attack() {
 		//Attack Animation +  what it does
+		
 	}
 
 	public void addToInventory(GameObject obj) {

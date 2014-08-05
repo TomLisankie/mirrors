@@ -66,7 +66,12 @@ public class Game extends Canvas {
 	private boolean rightPressed = false;
 	private boolean upPressed = false;
 	private boolean downPressed = false;
+	private boolean spacePressed = false;
 	private double moveSpeed = 300;
+	//for attacking
+	private long lastAttack = 0;
+	private long attackInterval = 500;
+	
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
 	 * a game event
@@ -222,6 +227,27 @@ public class Game extends Canvas {
 		waitingForKeyPress = true;
 	}
 
+	
+	
+	//Tryign to make a thing to delay attacks, so that you don't attack 5 times when clicking space once
+//	public void tryToAttack() {
+//		// check that we have waiting long enough to attack
+//
+//		if (System.currentTimeMillis() - lastAttack < attackInterval) {
+//			return;
+//		}
+//		
+//		// if we waited long enough, create the attack entity, and record the time.
+//
+//		lastAttack = System.currentTimeMillis();
+//		
+//		
+//	}
+	
+	
+	
+	
+	
 	/**
 	 * The main game loop. This loop is running during all game play as is
 	 * responsible for the following activities:
@@ -296,7 +322,7 @@ public class Game extends Canvas {
 			//
 			player.setHorizontalMovement(0);
 			player.setVerticalMovement(0);
-
+			
 			if ((leftPressed) && (!rightPressed)) {
 				player.setHorizontalMovement(-moveSpeed);
 			} 
@@ -309,10 +335,12 @@ public class Game extends Canvas {
 			else if ((downPressed)&&(!upPressed)){
 				player.setVerticalMovement(moveSpeed);
 			}
-		    if((input.isMouseButtonDown(0)==true)){
-				player.attack();
-				System.out.println("ATTACK!");
-			}
+		    
+		    if (spacePressed){
+		    	player.attack();
+		    	System.out.println("You Just Attacked");
+		    }
+
 		    
 		    
 			player.move(10);
@@ -375,6 +403,10 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_S){
 				downPressed = true;
 			}
+			if (e.getKeyCode() == KeyEvent.VK_SPACE){
+				spacePressed = true;
+			}
+			
 			
 		}
 
@@ -403,7 +435,9 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_S){
 				downPressed = false;
 			}
-			
+			if (e.getKeyCode() == KeyEvent.VK_SPACE){
+				spacePressed = false;
+			}
 
 		}
 
