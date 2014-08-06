@@ -230,19 +230,18 @@ public class Game extends Canvas {
 	
 	
 	//Tryign to make a thing to delay attacks, so that you don't attack 5 times when clicking space once
-//	public void tryToAttack() {
-//		// check that we have waiting long enough to attack
-//
-//		if (System.currentTimeMillis() - lastAttack < attackInterval) {
-//			return;
-//		}
-//		
-//		// if we waited long enough, create the attack entity, and record the time.
-//
-//		lastAttack = System.currentTimeMillis();
-//		
-//		
-//	}
+	public void tryToAttack() {
+		// check that we have waiting long enough to attack
+
+		if (System.currentTimeMillis() - lastAttack < attackInterval) {
+			return;
+		}
+		
+		// if we waited long enough, attack
+		lastAttack = System.currentTimeMillis();
+		player.attack();
+		
+	}
 	
 	
 	
@@ -337,8 +336,9 @@ public class Game extends Canvas {
 			}
 		    
 		    if (spacePressed){
-		    	player.attack();
-		    	System.out.println("You Just Attacked");
+		    	
+		    	tryToAttack();
+		    	
 		    }
 
 		    

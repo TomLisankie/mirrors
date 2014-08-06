@@ -69,7 +69,7 @@ public abstract class Entity extends GameObject {
 
 	public void attack() {
 		//Attack Animation +  what it does
-		
+		System.out.println("You Just Attacked");
 	}
 
 	public void addToInventory(GameObject obj) {
