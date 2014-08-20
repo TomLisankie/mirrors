@@ -1,6 +1,6 @@
-//random comment
-import gameobjects.Entity;
-import gameobjects.Player;
+
+
+import gameobjects.*;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -22,7 +22,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.newdawn.slick.Input;
 
 /**
  * The main hook of our game. This class with both act as a manager for the
@@ -42,7 +41,6 @@ public class Game extends Canvas {
 
 	// SystemTimer Timer = new SystemTimer();
 	private Room currentRoom = new Room();
-
 	/** The stragey that allows us to use accelerate page flipping */
 	private BufferStrategy strategy;
 	/** True if the game is currently "running", i.e. the game loop is looping */
@@ -86,7 +84,6 @@ public class Game extends Canvas {
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
 	
-	Input input = new Input(600);
 	//path to pics
 
 	String path = "gameobjects/";
@@ -522,7 +519,7 @@ public class Game extends Canvas {
 	 * @param argv
 	 *            The arguments that are passed into our game
 	 */
-	public static void main(String argv[]) {
+	public static void main(String args[]) {
 		Game g = new Game();
 
 		// Start the main game loop, note: this method will not
