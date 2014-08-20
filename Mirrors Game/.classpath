@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-=======
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/GTGE/golden_0_2_3.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/tinylinepp.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/slick-examples.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/slick.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/natives-windows.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/natives-mac.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/natives-linux.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/lwjgl_util_applet.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/lwjgl.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/jnlp.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/jinput.jar"/>
-	<classpathentry kind="lib" path="/media/insidious/Storage/Downloads/Slick Libraries/lib/ibxm.jar"/>
->>>>>>> branch 'master' of https://github.com/ShakenEarth/mirrors.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>

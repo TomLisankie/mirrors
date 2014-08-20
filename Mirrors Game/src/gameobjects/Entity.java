@@ -5,7 +5,6 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.ArrayList;
-//random comment
 
 public abstract class Entity extends GameObject {
 	/** The current x location of this entity */ 
