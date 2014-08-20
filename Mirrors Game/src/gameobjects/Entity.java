@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /* @author Andrew Plaza, Thomas Lisankie */
 
+
 public abstract class Entity extends GameObject {
 	/** The current x location of this entity */ 
 	protected double x;
