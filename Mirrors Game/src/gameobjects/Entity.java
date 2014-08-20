@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /* @author Andrew Plaza, Thomas Lisankie */
 
+//for commit
+
 
 public abstract class Entity extends GameObject {
 	/** The current x location of this entity */ 
