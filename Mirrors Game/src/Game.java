@@ -70,6 +70,7 @@ public class Game extends Canvas {
 	private double moveSpeed = 300;
 	//for attacking
 	private long lastAttack = 0;
+	//to change attack delay, change this
 	private long attackInterval = 500;
 	
 	/**
@@ -354,6 +355,7 @@ public class Game extends Canvas {
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.out.println("Thread sleep");
 			}
 		}
 	}

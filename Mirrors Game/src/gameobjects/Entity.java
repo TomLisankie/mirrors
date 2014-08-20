@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/* @author Andrew Plaza, Thomas Lisankie */
 
 public abstract class Entity extends GameObject {
 	/** The current x location of this entity */ 
@@ -27,7 +28,6 @@ public abstract class Entity extends GameObject {
 	private Point position = new Point(); // might change to a set of coordinates instead Changed it
 
 
-	
 	
 	Sprite[] sprites; // will use facing direction to reference a sprite in the array
 	Sprite currentSprite; // the current sprite
@@ -53,19 +53,6 @@ public abstract class Entity extends GameObject {
 		y += (delta * dy) / 1000;
 	}
 
-//	public void move(int x, int y) {
-//
-//		if (isMoving == true) {
-//
-//			position.setLocation(getPosition().getX() + x, getPosition().getY() + y);
-//
-//			System.out.println("you pressed a key");
-//		}
-//		// something for animation and sprite movement also has to exist
-//		// here
-//		// changes position and position of icon on screen
-//
-//	}
 
 	public void attack() {
 		//Attack Animation +  what it does
