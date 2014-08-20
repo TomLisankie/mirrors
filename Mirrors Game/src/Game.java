@@ -173,6 +173,7 @@ public class Game extends Canvas {
 		// to see at startup
 
 		initEntities();
+		
 	}
 
 	/**
@@ -243,10 +244,6 @@ public class Game extends Canvas {
 		
 	}
 	
-	
-	
-	
-	
 	/**
 	 * The main game loop. This loop is running during all game play as is
 	 * responsible for the following activities:
@@ -293,9 +290,6 @@ public class Game extends Canvas {
 			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0, 0, 800, 600);
-
-			
-		
 			
 			ImageObserver observer = null;
 			
@@ -344,10 +338,6 @@ public class Game extends Canvas {
 		    
 		    
 			player.move(10);
-			
-			
-			
-			
 			
 			try {
 				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
