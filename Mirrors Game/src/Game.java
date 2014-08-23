@@ -270,7 +270,7 @@ public class Game extends Canvas {
 			// update our FPS counter if a second has passed since
 			// we last recorded
 			if (lastFpsTime >= 1000000000) {
-				System.out.println("what the fuck");
+				
 				System.out.println("(FPS: " + fps + ")");
 				
 				lastFpsTime = 0;
@@ -330,11 +330,12 @@ public class Game extends Canvas {
 		    System.out.println("lastLoopTime: " + lastLoopTime);
 		    System.out.println("System.nanoTime(): " + System.nanoTime());
 		    System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
+		    System.out.println("Operation: " + ((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 		    
 			player.move(10);
 			
 			try {
-				System.out.println("Hello bitch");
+				
 				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
