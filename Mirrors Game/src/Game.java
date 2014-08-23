@@ -2,27 +2,15 @@
 import gameobjects.Entity;
 import gameobjects.Player;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferStrategy;
-import java.awt.image.ImageObserver;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import org.newdawn.slick.Input;
 
 /**
  * The main hook of our game. This class with both act as a manager for the
