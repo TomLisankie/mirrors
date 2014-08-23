@@ -180,7 +180,7 @@ public class Game extends Canvas {
 		rightPressed = false;
 		upPressed = false;
 		downPressed = false;
-		gameLoop();
+		//gameLoop();
 	}
 
 	/**
@@ -336,7 +336,7 @@ public class Game extends Canvas {
 			
 			try {
 				
-				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
+				Thread.sleep(Math.abs((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
