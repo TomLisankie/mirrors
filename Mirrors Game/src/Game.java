@@ -192,6 +192,7 @@ public class Game extends Canvas {
 		rightPressed = false;
 		upPressed = false;
 		downPressed = false;
+		gameLoop();
 	}
 
 	/**
@@ -201,6 +202,7 @@ public class Game extends Canvas {
 	private void initEntities() {
 
 		// Sets player sprite
+		
 		player = new Player( path + "game_sprite.png", 400, 400);
 		entities.add(player);
 		
@@ -260,9 +262,9 @@ public class Game extends Canvas {
 
 		// keep looping round til the game ends
 
-		while (gameRunning) {
+		while (gameRunning == true) {
 			// work out how long its been since the last update, this
-
+			System.out.println("Game running");
 			// will be used to calculate how far the entities should
 
 			// move this loop
@@ -280,7 +282,9 @@ public class Game extends Canvas {
 			// update our FPS counter if a second has passed since
 			// we last recorded
 			if (lastFpsTime >= 1000000000) {
+				System.out.println("what the fuck");
 				System.out.println("(FPS: " + fps + ")");
+				
 				lastFpsTime = 0;
 				fps = 0;
 			}
@@ -297,9 +301,9 @@ public class Game extends Canvas {
 			
 			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
 			 for (int i=0;i<entities.size();i++) {
-			Entity entity = (Entity) entities.get(i);
+				 Entity entity = (Entity) entities.get(i);
 			
-			 entity.draw(g);
+				 entity.draw(g);
 			
 			 } 
 			
@@ -335,11 +339,14 @@ public class Game extends Canvas {
 		    	
 		    }
 
-		    
+		    System.out.println("lastLoopTime: " + lastLoopTime);
+		    System.out.println("System.nanoTime(): " + System.nanoTime());
+		    System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
 		    
 			player.move(10);
 			
 			try {
+				System.out.println("Hello bitch");
 				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
