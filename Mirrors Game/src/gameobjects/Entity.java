@@ -61,6 +61,10 @@ public abstract class Entity extends GameObject {
 		//Attack Animation +  what it does
 		System.out.println("You Just Attacked");
 	}
+	public void block(){
+		//BLock animation +what it does
+		System.out.println("You Just Blocked");
+	}
 
 	public void addToInventory(GameObject obj) {
 
