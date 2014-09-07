@@ -20,6 +20,7 @@ public class Player extends Entity  {
 	public void move(long delta) {
 		// if we're moving left and have reached the left hand side
 		// of the screen, don't move
+		
 		if ((dx < 0) && (x < 10)) {
 			return;
 		}

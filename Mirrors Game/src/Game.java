@@ -2,27 +2,15 @@
 import gameobjects.Entity;
 import gameobjects.Player;
 
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferStrategy;
-import java.awt.image.ImageObserver;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import org.newdawn.slick.Input;
 
 /**
  * The main hook of our game. This class with both act as a manager for the
@@ -198,6 +186,7 @@ public class Game extends Canvas {
 		rightPressed = false;
 		upPressed = false;
 		downPressed = false;
+		//gameLoop();
 	}
 
 	/**
@@ -207,6 +196,7 @@ public class Game extends Canvas {
 	private void initEntities() {
 
 		// Sets player sprite
+		
 		player = new Player( path + "game_sprite.png", 400, 400);
 		entities.add(player);
 		
@@ -278,9 +268,9 @@ public class Game extends Canvas {
 
 		// keep looping round til the game ends
 
-		while (gameRunning) {
+		while (gameRunning == true) {
 			// work out how long its been since the last update, this
-
+			System.out.println("Game running");
 			// will be used to calculate how far the entities should
 
 			// move this loop
@@ -298,7 +288,9 @@ public class Game extends Canvas {
 			// update our FPS counter if a second has passed since
 			// we last recorded
 			if (lastFpsTime >= 1000000000) {
+				
 				System.out.println("(FPS: " + fps + ")");
+				
 				lastFpsTime = 0;
 				fps = 0;
 			}
@@ -315,9 +307,9 @@ public class Game extends Canvas {
 			
 			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
 			 for (int i=0;i<entities.size();i++) {
-			Entity entity = (Entity) entities.get(i);
+				 Entity entity = (Entity) entities.get(i);
 			
-			 entity.draw(g);
+				 entity.draw(g);
 			
 			 } 
 			
@@ -355,12 +347,16 @@ public class Game extends Canvas {
 		    	tryToBlock();
 		    }
 
-		    
+		    System.out.println("lastLoopTime: " + lastLoopTime);
+		    System.out.println("System.nanoTime(): " + System.nanoTime());
+		    System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
+		    System.out.println("Operation: " + ((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 		    
 			player.move(10);
 			
 			try {
-				Thread.sleep((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
+				
+				Thread.sleep(Math.abs((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
