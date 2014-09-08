@@ -270,7 +270,7 @@ public class Game extends Canvas {
 
 		while (gameRunning == true) {
 			// work out how long its been since the last update, this
-			System.out.println("Game running");
+			//System.out.println("Game running");
 			// will be used to calculate how far the entities should
 
 			// move this loop
@@ -304,6 +304,7 @@ public class Game extends Canvas {
 			ImageObserver observer = null;
 			
 			g.drawImage(layers[0], 0, 0, observer);
+			
 			
 			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
 			 for (int i=0;i<entities.size();i++) {
@@ -347,10 +348,10 @@ public class Game extends Canvas {
 		    	tryToBlock();
 		    }
 
-		    System.out.println("lastLoopTime: " + lastLoopTime);
-		    System.out.println("System.nanoTime(): " + System.nanoTime());
-		    System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
-		    System.out.println("Operation: " + ((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
+		     // System.out.println("lastLoopTime: " + lastLoopTime);
+		      //System.out.println("System.nanoTime(): " + System.nanoTime());
+		      //System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
+		      //System.out.println("Operation: " + ((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 		    
 			player.move(10);
 			
