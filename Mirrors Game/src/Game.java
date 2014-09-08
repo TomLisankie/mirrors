@@ -151,8 +151,7 @@ public class Game extends Canvas {
 		// Player Sprites
 		
 		try {
-			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
-		
+		layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
 		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
 		playerSprites[1] = ImageIO.read(getClass().getResource( path + "252.png"));
@@ -297,7 +296,8 @@ public class Game extends Canvas {
 
 			// This is where we should update Game Logic
 
-			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			Graphics2D g = (Graphics2D)
+			strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0, 0, 800, 600);
 			
