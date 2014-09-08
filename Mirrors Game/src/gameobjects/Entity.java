@@ -27,6 +27,8 @@ public abstract class Entity extends GameObject {
 	int characterSpeed = 5;
 	boolean isMoving = false;
 	ArrayList<GameObject> inventory = new ArrayList<GameObject>();
+	/** Exists in order */
+	int layerNumber;
 	int hp;
 	private Point position = new Point(); // might change to a set of coordinates instead Changed it
 

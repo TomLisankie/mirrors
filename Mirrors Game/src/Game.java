@@ -538,14 +538,12 @@ public class Game extends Canvas {
 		}
 
 
-		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
 
 
-		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
 			

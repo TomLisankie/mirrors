@@ -1,7 +1,9 @@
+import java.awt.*;
+
 
 public class LayerManagement {
 	
-	public void addLayer(){
+	public void addLayer(Image img, int layerNumber){
 		
 		
 		
