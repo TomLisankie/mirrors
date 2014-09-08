@@ -46,5 +46,8 @@ public class Player extends Entity  {
 		
 		
 	}
+	public void block(){
+		super.block();
+	}
     
 }

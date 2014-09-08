@@ -56,11 +56,17 @@ public class Game extends Canvas {
 	private boolean upPressed = false;
 	private boolean downPressed = false;
 	private boolean spacePressed = false;
+	private boolean leftClicked = false;
+	private boolean rightClicked =false;
+	
+	
 	private double moveSpeed = 300;
 	//for attacking
 	private long lastAttack = 0;
+	private long lastBlock = 0;
 	//to change attack delay, change this
 	private long attackInterval = 500;
+	private long blockInterval = 500;
 	
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
@@ -252,6 +258,18 @@ public class Game extends Canvas {
 		player.attack();
 		
 	}
+	public void tryToBlock() {
+		// check that we have waiting long enough to block
+
+		if (System.currentTimeMillis() - lastBlock < blockInterval) {
+			return;
+		}
+		
+		// if we waited long enough, attack
+		lastAttack = System.currentTimeMillis();
+		player.block();
+		
+	}
 	
 	/**
 	 * The main game loop. This loop is running during all game play as is
@@ -339,10 +357,12 @@ public class Game extends Canvas {
 				player.setVerticalMovement(moveSpeed);
 			}
 		    
-		    if (spacePressed){
-		    	
+		    if (leftClicked){
 		    	tryToAttack();
 		    	
+		    }
+		    if (rightClicked){
+		    	tryToBlock();
 		    }
 		    
 			player.move(10);
@@ -407,7 +427,6 @@ public class Game extends Canvas {
 				spacePressed = true;
 			}
 			
-			
 		}
 
 		/**
@@ -438,6 +457,8 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_SPACE){
 				spacePressed = false;
 			}
+			
+		
 
 		}
 
@@ -482,23 +503,32 @@ public class Game extends Canvas {
 	}
 	private class MouseInputHandler implements MouseListener{
 
-		//put mouse methods here
+		private int presscount = 1;
 	
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
 
 		
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+			if(e.getButton() == MouseEvent.BUTTON1){
+				leftClicked = true;
+			}
+			
+			if(e.getButton() == MouseEvent.BUTTON3){
+				rightClicked = true;
+				
+			}
 			
 		}
 
 
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+			if(e.getButton() == MouseEvent.BUTTON1){
+				leftClicked = false;	
+			}
 			
+			if(e.getButton() == MouseEvent.BUTTON3){
+				rightClicked = false;
+				
+			}
 		}
 
 		
@@ -507,11 +537,22 @@ public class Game extends Canvas {
 			
 		}
 
-		
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
+
+		
+		
 		
 	}
 
