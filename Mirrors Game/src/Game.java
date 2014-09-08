@@ -25,10 +25,11 @@ import javax.swing.JPanel;
  
  * 
  * @author Andrew Plaza
+ * @author Thomas Lisankie
  */
 public class Game extends Canvas {
 
-	// SystemTimer Timer = new SystemTimer();
+	
 	private Room currentRoom = new Room();
 
 	/** The stragey that allows us to use accelerate page flipping */
@@ -83,18 +84,38 @@ public class Game extends Canvas {
 	
 	//path to pics
 
-	String path = "gameobjects/";
-	// player spritees
+	String path = "gameobjects/images/";
+	// player sprite
 	Image[] playerSprites = new Image[4];
 	// List for layers	
 	Image[] layers = new Image[3];
+	
+	/**
+	 * The entry point into the game. We'll simply create an instance of class
+	 * which will start the display and game loop.
+	 * 
+	 * @param argv
+	 *            The arguments that are passed into our game
+	 */
+	public static void main(String args[]) {
+		
+		Game g = new Game();
+
+		// Start the main game loop, note: this method will not
+
+		// return until the game has finished running. Hence we are
+
+		// using the actual main thread to run the game.
+
+		g.gameLoop();
+	}
+	
 	/**
 	 * Construct our game and set it running.
 	 */
 	public Game() {
 		// create a frame to contain our * 
 		container = new JFrame("Mirrors");
-
 		// get hold the content of the frame and set up the resolution of the
 		// game
 
@@ -202,7 +223,7 @@ public class Game extends Canvas {
 		//we can add other entities here into the windows (Such as the Kathrepti)
 	}
 
-	 //Game Logic- for when we need to update other characters/movements/things
+	 /** Game Logic- for when we need to update other characters/movements/things*/
 	public void updateLogic() {
 		logicRequiredThisLoop = true;
 	}
@@ -222,10 +243,8 @@ public class Game extends Canvas {
 		message = "You Won.";
 		waitingForKeyPress = true;
 	}
-
 	
-	
-	//Tryign to make a thing to delay attacks, so that you don't attack 5 times when clicking space once
+	//Trying to make a thing to delay attacks, so that you don't attack 5 times when clicking space once
 	public void tryToAttack() {
 		// check that we have waiting long enough to attack
 
@@ -526,14 +545,12 @@ public class Game extends Canvas {
 		}
 
 
-		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
 
 
-		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
@@ -544,22 +561,5 @@ public class Game extends Canvas {
 		
 	}
 
-	/**
-	 * The entry point into the game. We'll simply create an instance of class
-	 * which will start the display and game loop.
-	 * 
-	 * @param argv
-	 *            The arguments that are passed into our game
-	 */
-	public static void main(String args[]) {
-		Game g = new Game();
-
-		// Start the main game loop, note: this method will not
-
-		// return until the game has finished running. Hence we are
-
-		// using the actual main thread to run the game.
-
-		g.gameLoop();
-	}
+	
 }
