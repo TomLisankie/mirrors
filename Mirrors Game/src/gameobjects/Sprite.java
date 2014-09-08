@@ -10,6 +10,7 @@ public class Sprite {
 	
 	private BufferedImage imgL;
 	private Image image;
+	private int layerNumber;
 	
 	public Sprite(Image image){
 		
@@ -29,6 +30,12 @@ public class Sprite {
 		
 		return imgL;
 		
+	}
+	public int getLayerNumber() {
+		return layerNumber;
+	}
+	public void setLayerNumber(int layerNumber) {
+		this.layerNumber = layerNumber;
 	}
 
 }

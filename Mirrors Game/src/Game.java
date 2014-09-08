@@ -84,7 +84,7 @@ public class Game extends Canvas {
 	
 	//path to pics
 
-	String path = "gameobjects/";
+	String path = "gameobjects/images/";
 	// player sprite
 	Image[] playerSprites = new Image[4];
 	// List for layers	
@@ -98,6 +98,7 @@ public class Game extends Canvas {
 	 *            The arguments that are passed into our game
 	 */
 	public static void main(String args[]) {
+		
 		Game g = new Game();
 
 		// Start the main game loop, note: this method will not
@@ -115,7 +116,6 @@ public class Game extends Canvas {
 	public Game() {
 		// create a frame to contain our * 
 		container = new JFrame("Mirrors");
-
 		// get hold the content of the frame and set up the resolution of the
 		// game
 
