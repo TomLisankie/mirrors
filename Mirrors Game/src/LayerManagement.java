@@ -1,19 +1,20 @@
 import java.awt.*;
-
+import gameobjects.*;
 
 public class LayerManagement {
 	
-	int maxLayerNumber = 5;
-	int numOfLayers;
+	final int MAXLAYERNUMBER = 5;
+	Layer[] layers;
 	
-	public LayerManagement(int numberOfLayers){
+	public LayerManagement(){
 		
-		numOfLayers = numberOfLayers;
+		layers = new Layer[MAXLAYERNUMBER];
 		
 	}
 	
-	public void addLayer(Image img, int layerNumber){
+	public void addGameObjectToLayer(GameObject obj, int layerNumber){
 		
+		layers[layerNumber].add(obj);
 		
 		
 	}

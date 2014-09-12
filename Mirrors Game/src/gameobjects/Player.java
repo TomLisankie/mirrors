@@ -12,8 +12,8 @@ public class Player extends Entity  {
 	
 
 	//reference to character, and then sprite storage
-	public Player(String ref, int x, int y){
-		super(ref, x, y);
+	public Player(String spriteRef, int x, int y){
+		super(spriteRef, x, y);
 		
 	}
 	

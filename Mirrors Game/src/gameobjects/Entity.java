@@ -40,8 +40,8 @@ public abstract class Entity extends GameObject {
 	public Entity(){
 		
 	}
-	public Entity(String ref, int x, int y){
-		this.sprite = SpriteStorage.get().getSprite(ref);
+	public Entity(String spriteRef, int x, int y){
+		this.sprite = SpriteStorage.get().getSprite(spriteRef);
 		this.x = x;
 		this.y = y;
 		

@@ -1,6 +1,5 @@
 
-import gameobjects.Entity;
-import gameobjects.Player;
+import gameobjects.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -174,6 +173,7 @@ public class Game extends Canvas {
 		try {
 			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		
+		//TODO Integrate LayerManagement system
 		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
 		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
 		playerSprites[1] = ImageIO.read(getClass().getResource( path + "252.png"));
@@ -218,8 +218,10 @@ public class Game extends Canvas {
 
 		// Sets player sprite
 		
-		player = new Player( path + "game_sprite.png", 400, 400);
+		player = new Player( path + "game_sprite.gif", 400, 400);
 		entities.add(player);
+		Kathrepti k = new Kathrepti(path + "kathrepti_standin.png", 500, 500);
+		entities.add(k);
 		
 		//we can add other entities here into the windows (Such as the Kathrepti)
 	}
