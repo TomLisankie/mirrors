@@ -171,9 +171,11 @@ public class Game extends Canvas {
 		// Player Sprites
 		
 		try {
+
 			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		
 		//TODO Integrate LayerManagement system
+		layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
 		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
 		playerSprites[1] = ImageIO.read(getClass().getResource( path + "252.png"));
@@ -291,6 +293,7 @@ public class Game extends Canvas {
 
 		while (gameRunning == true) {
 			// work out how long its been since the last update, this
+			//System.out.println("Game running");
 			// will be used to calculate how far the entities should
 
 			// move this loop
@@ -317,13 +320,15 @@ public class Game extends Canvas {
 
 			// This is where we should update Game Logic
 
-			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			Graphics2D g = (Graphics2D)
+			strategy.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0, 0, 800, 600);
 			
 			ImageObserver observer = null;
 			
 			g.drawImage(layers[0], 0, 0, observer);
+			
 			
 			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
 			 for (int i=0;i<entities.size();i++) {
@@ -366,6 +371,11 @@ public class Game extends Canvas {
 		    if (rightClicked){
 		    	tryToBlock();
 		    }
+
+		     // System.out.println("lastLoopTime: " + lastLoopTime);
+		      //System.out.println("System.nanoTime(): " + System.nanoTime());
+		      //System.out.println("OPTIMAL_TIME: " + OPTIMAL_TIME);
+		      //System.out.println("Operation: " + ((lastLoopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000));
 		    
 			player.move(10);
 			
