@@ -30,6 +30,7 @@ public class Game extends Canvas {
 
 	
 	private Room currentRoom = new Room();
+	LayerManagement lm = new LayerManagement();
 
 	/** The stragey that allows us to use accelerate page flipping */
 	private BufferStrategy strategy;
@@ -175,7 +176,8 @@ public class Game extends Canvas {
 			layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
 		
 		//TODO Integrate LayerManagement system
-		layers[0] = ImageIO.read(getClass().getResource( path+ "backdrop.png"));
+		Background bg = new Background(ImageIO.read(getClass().getResource( path + "backdrop.png")));
+		lm.addGameObjectToLayer(bg, 0);
 		layers[1] = playerSprites[0] = ImageIO.read(getClass().getResource( path + "game_sprite.png"));
 		layers[2] = ImageIO.read(getClass().getResource( path + "castle.png"));
 		playerSprites[1] = ImageIO.read(getClass().getResource( path + "252.png"));
@@ -325,15 +327,18 @@ public class Game extends Canvas {
 			g.setColor(Color.black);
 			g.fillRect(0, 0, 800, 600);
 			
-			ImageObserver observer = null;
+			for (int i=0;i < lm.getLayer(0).getObjectsOnLayer().size(); i++) {
+				Background bg = (Background) lm.getLayer(0).getObjectsOnLayer().get(i);
+				 BufferedImage img = bg.getImage();
+				 
+				 g.drawImage(img, 0, 0, null);
 			
-			g.drawImage(layers[0], 0, 0, observer);
-			
+			 } 
 			
 			//loop for drawing all entities in the entity array list. Commented out for now b/c only one entity so far (player)
-			 for (int i=0;i<entities.size();i++) {
+			 for (int i=0;i < entities.size(); i++) {
 				 Entity entity = (Entity) entities.get(i);
-			
+				 
 				 entity.draw(g);
 			
 			 } 

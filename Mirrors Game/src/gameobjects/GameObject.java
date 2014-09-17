@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
 public abstract class GameObject implements Serializable {
-	
 
 	private BufferedImage image;
 	
@@ -15,7 +14,7 @@ public abstract class GameObject implements Serializable {
 		
 	}
 	public GameObject(BufferedImage img ){
-		img = image;
+		image = img;
 		
 	}
 	
