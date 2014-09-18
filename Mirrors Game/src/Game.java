@@ -78,7 +78,7 @@ public class Game extends Canvas {
 	/** The current number of frames recorded */
 	private int fps;
 	/** The normal title of the game window */
-	private String windowTitle = "Mirrors";
+	private String windowTitle = "Mirrors Alpha 0.000001";
 	/** The game window that we'll update with the frame count */
 	private JFrame container;
 	
@@ -114,6 +114,7 @@ public class Game extends Canvas {
 	 * Construct our game and set it running.
 	 */
 	public Game() {
+		
 		// create a frame to contain our * 
 		container = new JFrame("Mirrors");
 		// get hold the content of the frame and set up the resolution of the
@@ -304,7 +305,7 @@ public class Game extends Canvas {
 			fps++;
 
 			// update our FPS counter if a second has passed since
-			// we last recorded
+			// we last recordedpp
 			if (lastFpsTime >= 1000000000) {
 				
 				System.out.println("(FPS: " + fps + ")");
