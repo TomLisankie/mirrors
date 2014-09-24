@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
+/** 
  * The main hook of our game. This class with both act as a manager for the
  * display and central mediator for the game logic.
  * 
@@ -25,6 +25,12 @@ import javax.swing.JPanel;
  * 
  * @author Andrew Plaza
  * @author Thomas Lisankie
+ * 
+ * Adding some history for git
+ * adding more histor
+ * even more history for git console
+ * y
+ * 
  */
 public class Game extends Canvas {
 
