@@ -156,7 +156,9 @@ public class Game extends Canvas {
 				System.exit(0);
 			}
 		});
-
+		
+		System.out.println("random");
+		
 		// add a key input system (defined below) to our canvas
 
 		// so we can respond to key pressed
