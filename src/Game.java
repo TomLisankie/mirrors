@@ -64,13 +64,17 @@ public class Game extends Canvas {
 	private boolean spacePressed = false;
 	private boolean leftClicked = false;
 	private boolean rightClicked =false;
+	private boolean fPressed= false;
 	
 	
 	private double moveSpeed = 300;
 	//for attacking
-	private long lastAttack = 0;
+	
+	private long lastAction = 0;
 	private long lastBlock = 0;
 	private long lastJump = 0;
+	private long lastInteract = 0;
+	
 	//to change attack delay, change this
 	
 	private static long INTERVAL = 500;
@@ -258,40 +262,35 @@ public class Game extends Canvas {
 		waitingForKeyPress = true;
 	}
 	
-	//Trying to make a thing to delay attacks, so that you don't attack 5 times when clicking space once
-	public void tryToAttack() {
-		// check that we have waiting long enough to attack
-
-		if (System.currentTimeMillis() - lastAttack < INTERVAL) {
+	
+	public void tryTo(String action){
+		
+		
+		if (System.currentTimeMillis() - lastAction < INTERVAL){
 			return;
 		}
 		
-		// if we waited long enough, attack
-		lastAttack = System.currentTimeMillis();
-		player.attack();
+		lastAction = System.currentTimeMillis();
 		
-	}
-	public void tryToBlock() {
-		// check that we have waiting long enough to block
-
-		if (System.currentTimeMillis() - lastBlock < INTERVAL) {
-			return;
+		if (action.equals("attack")){
+			player.attack();
 		}
-		
-		
-		// if we waited long enough, attack
-		lastAttack = System.currentTimeMillis();
-		player.block();
-		
-	}
-	public void tryToJump(){
-		if (System.currentTimeMillis() - lastJump < INTERVAL ){
+		else if (action.equals("jump")){
+			player.jump();
+		}
+		else if (action.equals("interact")){
+			player.interact();
+		}
+		else if (action.equals("block")){
+			player.block();
+		}
+		else{
 			
-			return;
 		}
-		lastJump = System.currentTimeMillis();
-		player.jump();
+		
 	}
+	
+	
 	
 	/**
 	 * The main game loop. This loop is running during all game play as is
@@ -401,14 +400,16 @@ public class Game extends Canvas {
 			}
 		    
 		    if (leftClicked){
-		    	tryToAttack();
-		    	
+		    	tryTo("attack");
 		    }
 		    if (rightClicked){
-		    	tryToBlock();
+		    	tryTo("block");
 		    }
 		    if (spacePressed){
-		    	tryToJump();
+		    	tryTo("jump");
+		    }
+		    if (fPressed){
+		    	tryTo("interact");
 		    }
 
 		     // System.out.println("lastLoopTime: " + lastLoopTime);
@@ -428,6 +429,8 @@ public class Game extends Canvas {
 			}
 		}
 	}
+
+
 
 	/**
 	 * A class to handle keyboard input from the user. The class handles both
@@ -477,7 +480,9 @@ public class Game extends Canvas {
 			if (e.getKeyCode() == KeyEvent.VK_SPACE){
 				spacePressed = true;
 			}
-			
+			if (e.getKeyCode() == KeyEvent.VK_F){
+				fPressed = true;
+			}
 		}
 
 		/**
@@ -507,6 +512,9 @@ public class Game extends Canvas {
 			}
 			if (e.getKeyCode() == KeyEvent.VK_SPACE){
 				spacePressed = false;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_F){
+				fPressed = false;
 			}
 			
 		

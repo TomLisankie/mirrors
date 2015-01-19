@@ -69,6 +69,9 @@ public abstract class Entity extends GameObject {
 	public void jump(){
 		System.out.println("YOU JUMPED!");
 	}
+	public void interact(){
+		System.out.println("You Interacted");
+	}
 
 	public void addToInventory(GameObject obj) {
 
