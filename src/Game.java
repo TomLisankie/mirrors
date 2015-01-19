@@ -70,9 +70,11 @@ public class Game extends Canvas {
 	//for attacking
 	private long lastAttack = 0;
 	private long lastBlock = 0;
+	private long lastJump = 0;
 	//to change attack delay, change this
-	private long attackInterval = 500;
-	private long blockInterval = 500;
+	
+	private static long INTERVAL = 500;
+
 	
 	/**
 	 * True if game logic needs to be applied this loop, normally as a result of
@@ -260,7 +262,7 @@ public class Game extends Canvas {
 	public void tryToAttack() {
 		// check that we have waiting long enough to attack
 
-		if (System.currentTimeMillis() - lastAttack < attackInterval) {
+		if (System.currentTimeMillis() - lastAttack < INTERVAL) {
 			return;
 		}
 		
@@ -272,14 +274,23 @@ public class Game extends Canvas {
 	public void tryToBlock() {
 		// check that we have waiting long enough to block
 
-		if (System.currentTimeMillis() - lastBlock < blockInterval) {
+		if (System.currentTimeMillis() - lastBlock < INTERVAL) {
 			return;
 		}
+		
 		
 		// if we waited long enough, attack
 		lastAttack = System.currentTimeMillis();
 		player.block();
 		
+	}
+	public void tryToJump(){
+		if (System.currentTimeMillis() - lastJump < INTERVAL ){
+			
+			return;
+		}
+		lastJump = System.currentTimeMillis();
+		player.jump();
 	}
 	
 	/**
@@ -395,6 +406,9 @@ public class Game extends Canvas {
 		    }
 		    if (rightClicked){
 		    	tryToBlock();
+		    }
+		    if (spacePressed){
+		    	tryToJump();
 		    }
 
 		     // System.out.println("lastLoopTime: " + lastLoopTime);
